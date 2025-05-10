@@ -1,0 +1,79 @@
+.footer {
+    background-color: #152715; /* Dark green background similar to image */
+    color: #ffffff;
+    padding: 30px 0;
+    width: 100%;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .social-icons a {
+    margin: 0 10px;
+  }
+  
+  .social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .social-icons img:hover {
+    opacity: 0.8;
+  }
+  
+  .footer-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .footer-nav-item {
+    background: none;
+    border: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Playfair Display SC', serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-nav-item:hover {
+    color: #c0c0c0; /* Light silver hover state */
+  }
+  
+  .footer-info {
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #818a81; /* Light silver hover state */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .footer-nav {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .footer-nav-item {
+      margin: 5px 0;
+    }
+  }

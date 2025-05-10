@@ -1,0 +1,253 @@
+/* Pricing.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+/* Custom font import for GarciaMarquez */
+@font-face {
+  font-family: 'GarciaMarquez';
+  src: local('GarciaMarquez'),
+       url('../../assets/fonts/GarciaMarquez.woff2') format('woff2'),
+       url('../../assets/fonts/GarciaMarquez.woff') format('woff'),
+       url('../../assets/fonts/GarciaMarquez.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.pricing-card-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  min-height: 600px; /* Уменьшена высота с 700px до 600px */
+}
+
+/* Зеленый фон */
+.green-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.green-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Листья декорации поверх всего */
+.leaves-decoration {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background-image: url('../../assets/images/listva2.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 10;
+}
+
+.leaves-right {
+    bottom: -150px;
+  left: -300px;
+  background-position: top right;
+}
+
+.leaves-left {
+    top: -250px;
+  right: -160px;
+  background-position: bottom left;
+  transform: scaleX(-1) scaleY(-1); /* Полное зеркалирование */
+}
+
+/* Белый прямоугольник с закругленными верхними углами */
+.pricing-card {
+  position: absolute;
+  width: 90%;
+  height: auto;
+  min-height: 500px; /* Уменьшена высота с 600px до 500px */
+  background-color: white;
+  border-radius: 30px 30px 0 0;
+  padding: 40px 60px 60px; /* Уменьшен верхний паддинг для поднятия текста вверх */
+  margin: 0 auto;
+  top: 50px;
+  left: 5%;
+  right: 5%;
+  bottom: 0;
+  z-index: 5;
+  overflow: hidden;
+}
+
+/* Текстура */
+.texture-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: repeat;
+  background-size: auto;
+  opacity: 0.2;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.price-content {
+  position: relative;
+  z-index: 7;
+  padding: 0; /* Убран паддинг для поднятия всего содержимого */
+}
+
+.price-title {
+  font-family: 'GarciaMarquez', serif;
+  color: #1e3a29;
+  font-size: 4rem; /* Увеличен размер с 3.5rem до 4rem */
+  text-align: center;
+  margin-bottom: 50px; /* Уменьшен отступ снизу для компактности */
+  margin-top: 0; /* Убран отступ сверху для поднятия заголовка */
+       line-height: 1.1;
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px; /* Уменьшен отступ для компактности */
+  border-bottom: 1px dotted #1e3a29;
+  padding-bottom: 15px;
+}
+
+.price-description {
+  font-family: 'Playfair Display SC', serif;
+  font-size: 1.8rem;
+  color: #1e3a29;
+}
+
+.price-value {
+  font-family: 'Playfair Display SC', serif;
+  font-size: 1.8rem;
+  color: #1e3a29;
+  font-weight: bold;
+}
+
+.price-discount {
+  margin: 40px 0; /* Уменьшены отступы для компактности */
+  font-family: 'Playfair Display SC', serif;
+  font-size: 1.6rem;
+  color: #1e3a29;
+  text-align: center;
+}
+
+.payment-methods {
+  font-family: 'Playfair Display SC', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: #1e3a29;
+  text-align: right;
+  margin-top: 50px; /* Уменьшен отступ для компактности */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .pricing-card {
+    padding: 30px 40px 40px;
+  }
+  
+  .price-title {
+    font-size: 3.5rem;
+  }
+  
+  .price-description,
+  .price-value {
+    font-size: 1.5rem;
+  }
+  
+  .price-discount {
+    font-size: 1.4rem;
+  }
+  
+  .payment-methods {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .payment-methods
+  {
+margin: 0 0 10px 0;
+
+  }
+  .price-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .price-value {
+    margin-top: 15px;
+  }
+  
+  .leaves-decoration {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .pricing-card {
+    width: 95%;
+    left: 2.5%;
+    right: 2.5%;
+    padding: 20px 20px 30px;
+  }
+  
+  .price-title {
+    font-size: 3rem;
+    margin-bottom: 30px;
+  }
+  
+}
+
+
+
+@media (max-width: 480px) {
+  .price-title {
+    font-size: 2.5rem;
+  }
+  
+  .price-description,
+  .price-value {
+    font-size: 1.2rem;
+  }
+  
+  .price-discount {
+    font-size: 1rem;
+  }
+  
+  .payment-methods {
+    font-size: 0.9rem;
+  }
+  
+  .leaves-decoration {
+    width: 150px;
+    height: 150px;
+  }
+  
+
+
+
+  .pricing-container {
+  
+    padding: 10px 0 40px 0;
+  }
+
+  
+}

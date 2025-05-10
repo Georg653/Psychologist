@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&display=swap');
+
+.header {
+  padding: 10px 0;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 80;
+  width: 100%;
+  max-width: 1840px;
+  margin: 0 auto;
+  position: fixed; /* Фиксируем хедер */
+}
+
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.logo h1 {
+  font-family: 'Playfair Display SC', serif;
+  font-weight: 700;
+  color: #a64b2a;
+  font-size: 24px;
+  margin: 0;
+}
+
+.navigation ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.navigation button {
+  font-family: 'Playfair Display SC', serif;
+  color: #3c3c3c;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.navigation button:hover {
+  color: #a64b2a;
+}
+
+.telegram-button {
+  display: flex;
+}
+
+.telegram-link {
+  display: flex;
+  align-items: center;
+  background-color: #a64b2a;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-family: 'Playfair Display SC', serif;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.telegram-link:hover {
+  background-color: #8a3e23;
+}
+
+.telegram-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  background-image: url('../../assets/icons/telegram.jpg');
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+}
+
+/* Стили для бургер-меню */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.burger-line {
+  width: 100%;
+  height: 2px;
+  background-color: #a64b2a;
+  transition: all 0.3s ease;
+}
+
+/* Запрет горизонтальной прокрутки для всей страницы */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Медиа-запросы для мобильной версии */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0 20px;
+    position: relative; /* Обеспечиваем правильный контекст позиционирования */
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  /* Полностью скрываем навигацию за пределами экрана */
+  .navigation {
+    position: fixed;
+    top: 0;
+    right: -100vw; /* используем vw, чтобы точно уйти за экран */
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    transition: right 0.3s ease;
+    padding: 80px 20px 20px;
+    z-index: 99;
+    visibility: hidden; /* полностью скрываем до нажатия */
+    opacity: 0; /* делаем полностью прозрачным до нажатия */
+    pointer-events: none; /* игнорируем события мыши когда скрыто */
+  }
+
+  .navigation.open {
+    right: 0;
+    visibility: visible; /* показываем при открытии */
+    opacity: 1; /* делаем видимым при открытии */
+    pointer-events: auto; /* возвращаем события мыши при открытии */
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Изменение стиля бургера при открытом меню */
+  .burger-menu.open .burger-line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .burger-menu.open .burger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-menu.open .burger-line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  /* Изменение стиля лого на мобильном */
+  .logo h1 {
+    font-size: 18px;
+  }
+
+  /* Изменение стиля кнопки телеграм */
+  .telegram-link {
+    padding: 10px;
+    border-radius: 50%;
+  }
+
+  .telegram-link span:not(.telegram-icon) {
+    display: none;
+  }
+
+  .telegram-icon {
+    margin-right: 0;
+  }
+}

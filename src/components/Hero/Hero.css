@@ -1,0 +1,418 @@
+/* Hero.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+/* Custom font import for GarciaMarquez - adjust path as needed */
+@font-face {
+  font-family: 'GarciaMarquez';
+  src: local('GarciaMarquez'),
+       url('../../assets/fonts/GarciaMarquez.woff2') format('woff2'),
+       url('../../assets/fonts/GarciaMarquez.woff') format('woff'),
+       url('../../assets/fonts/GarciaMarquez.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.hero-container {
+  margin: 70px 0 0 0 ;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden; /* Предотвращает выход контента за пределы контейнера */
+}
+
+.hero-background {
+  width: 100%;
+  max-width: 1300px;
+  height: 600px;
+  background-color: #2b4b37; /* Dark green background */
+  border-radius: 30px;
+  position: relative;
+  overflow: visible; /* Позволяет контенту выходить за пределы фона */
+}
+
+/* Стили для верхней листвы */
+.foliage-top {
+  position: absolute;
+  top: -120px;
+  left: 500px;
+  width: 100%;
+  z-index: 8;
+  pointer-events: none; /* Разрешает клики сквозь листву */
+  opacity: 0.9;
+}
+
+.foliage-top img {
+  width: 900px;
+  height: 100px;
+
+  height: auto;
+  max-height: 1000px;
+  object-fit: cover;
+}
+
+/* Стили для боковой листвы */
+.foliage-side {
+  position: absolute;
+  top: 20%;
+  left: -200px;
+  height: 100%;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.foliage-side img {
+  height: 100%;
+  width: auto;
+  max-width: 500px;
+  object-fit: contain;
+}
+
+.content-container {
+  position: relative;
+  height: 100%;
+}
+
+/* Line image that spans the whole width */
+.line-image {
+  position: absolute;
+  top: 150px; /* Position it near the "Здравствуйте" text */
+  width: 100%;
+  z-index: 2;
+}
+
+.line-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Psychologist image positioned left with 50px margin - ENLARGED */
+.psychologist-image {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 420px; /* Increased from 380px */
+  height: auto;
+  z-index: 8;
+}
+
+.psychologist-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text content positioned with the large greeting */
+.text-content {
+  position: relative;
+  height: 100%;
+}
+
+/* Large greeting text with proper placement - ENLARGED */
+.greeting-text {
+  position: absolute;
+  left: 80px;
+  top: 30px;
+  font-family: 'GarciaMarquez', serif !important;
+  color: white;
+  font-size: 8.5rem; /* Increased from 7rem */
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  z-index: 5;
+}
+
+/* Friends text positioned on the right side - EXPANDED BLOCK */
+.friends-text {
+  position: absolute;
+  right: 30px; /* Increased right margin to 100px */
+  top: 150px;
+  font-family: 'GarciaMarquez', serif !important;
+  color: white;
+  font-size: 5.7rem;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  z-index: 5;
+  text-align: center;
+  width: 60%; /* Increased from 40% to expand block horizontally */
+}
+
+/* Intro text - EXPANDED BLOCK */
+.intro-text {
+  position: absolute;
+  right: 20px; /* Increased right margin to 100px */
+  top: 280px;
+  width: 58%; /* Increased from 40% to expand block horizontally */
+  font-family: 'Playfair Display SC', serif;
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Social buttons - INCREASED RIGHT MARGIN */
+.social-buttons {
+  position: absolute;
+  right: 10px; /* Increased right margin to 100px */
+  bottom: 80px;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  width: 60%; /* Increased from 40% to match text width */
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 12px 25px;
+  color: white;
+  text-decoration: none;
+  font-family: 'Playfair Display SC', serif;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.social-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-button img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+  .psychologist-image {
+    width: 380px;
+  }
+  
+  .greeting-text {
+    
+    font-size: 7rem;
+  }
+  
+  .friends-text {
+    font-size: 4.5rem;
+    width: 55%;
+  }
+  
+  .intro-text {
+    width: 55%;
+    font-size: 1.2rem;
+  }
+  
+  .social-buttons {
+    width: 55%;
+  }
+  
+  .foliage-side {
+    right: -20px;
+    height: 55%;
+  }
+}
+
+@media (max-width: 992px) {
+  .psychologist-image {
+    width: 320px;
+  }
+  
+  .greeting-text {
+    
+    left: 120px;
+    font-size: 5.5rem;
+  }
+  
+  .friends-text {
+    font-size: 4rem;
+    width: 50%;
+    right: 80px;
+  }
+  
+  .intro-text {
+    width: 50%;
+    font-size: 1.1rem;
+    right: 80px;
+  }
+  
+  .social-buttons {
+    width: 50%;
+    right: 80px;
+  }
+  
+  .foliage-top {
+    top: -30px;
+    max-height: 100px;
+  }
+  
+  .foliage-side {
+    right: -15px;
+    height: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-background {
+    height: auto;
+    padding: 0px 0 80px;
+  }
+  
+  .line-image {
+    top: 260px;
+  }
+  
+  .psychologist-image {
+    position: relative;
+    left: 50%;
+    top: -20px;
+    transform: translateX(-50%);
+    width: 250px;
+    z-index: 9;
+  }
+  
+  .greeting-text {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin-top: -320px;
+    text-align: center;
+    font-size: 4.5rem;
+  }
+  
+  .friends-text {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 80%;
+
+    margin: 20px auto 0;
+    text-align: center;
+    font-size: 3.5rem;
+  }
+  
+  .intro-text {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 90%;
+    margin: 130px 30px 30px 30px;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  
+  .social-buttons {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    margin: 20px auto 0;
+    justify-content: center;
+    width: 90%;
+  }
+  
+  .foliage-top {
+    top: -20px;
+  }
+  
+  .foliage-side {
+    position: absolute;
+    top: auto;
+    bottom: -20px;
+    right: -10px;
+    transform: none;
+    height: auto;
+    width: 35%;
+  }
+  
+  .foliage-side img {
+    width: 100%;
+    height: auto;
+    max-width: none;
+  }
+}
+
+@media (max-width: 576px) {
+
+  
+  .psychologist-image {
+    position: relative;
+    left: 50%;
+    top: -20px;
+    transform: translateX(-50%);
+    width: 210px;
+    z-index: 9;
+  }
+  
+  .greeting-text {
+    top: 50px;
+    font-size: 2.5rem;
+  }
+  
+  .friends-text {
+    top: 50px;
+    font-size: 2.2rem;
+  }
+  
+  .intro-text {
+    right: 10px;
+    top: 50px;
+    font-size: 0.72rem;
+  }
+  
+  .foliage-top {
+    top: -15px;
+    max-height: 80px;
+    
+  }
+  
+  .foliage-side {
+    top: 89px;
+    width: 80%;
+  }
+
+  .social-buttons a {
+    position: relative;
+    right: 0;
+    border-radius: 15px;
+    bottom: 0;
+    margin: 40px -5px 0;
+    padding: 10px;
+    justify-content: center;
+    width: 90%;
+    font-size: 0.6rem;
+  }
+
+ 
+  .social-buttons img {
+   
+    width: 30%;
+    height: 100%;
+    
+  }
+
+  .hero-background
+  {
+padding: 0 0 30px;
+
+  }
+
+  .img
+  {
+width: 0px;
+
+  }
+}

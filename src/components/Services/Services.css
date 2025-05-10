@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+@font-face {
+  font-family: 'GarciaMarquez';
+  src: url('../../assets/GarciaMarquez.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.service-container {
+  background-color: #ffffff;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px 20px 50px;
+  overflow: hidden;
+}
+
+/* Black line in the background */
+.service-container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-image: url('../../assets/images/Vector_43.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 60%;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+/* Left foliage */
+.service-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 1px;
+  width: 500px;
+  height: 500px;
+  top: 400px;
+  background-image: url('../../assets/images/listva2.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom left;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+/* Right foliage - flipped image */
+.service-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -800px;
+  width: 1000px;
+  height: 600px;
+  background-image: url('../../assets/images/listva2.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top right;
+  opacity: 0.8;
+  z-index: 0;
+  transform: scaleX(-1); /* Flip the image horizontally */
+}
+
+.service-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px; /* Increased for better spacing */
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.service-heading {
+  font-family: 'GarciaMarquez', serif;
+  font-size: 54px;
+  text-align: center;
+  color: #2C4A37;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+       line-height: 1;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px; /* Reduced horizontal spacing */
+  row-gap: 20px; /* Kept vertical spacing */
+  position: relative;
+  z-index: 2;
+}
+
+/* This ensures the cards maintain their proportions */
+.service-grid > div {
+  width: 100%;
+  max-width: 100%; /* Allow cards to fill available space */
+  margin: 0 auto;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15px;
+  }
+  .service-heading {
+    font-size: 48px;
+  }
+}
+
+/* Modified to show 2 cards per row on mobile */
+@media (max-width: 768px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 15px;
+    max-width: 100%;
+  }
+  .service-heading {
+    font-size: 42px;
+  }
+  
+  /* Slightly adjust card size for better mobile fit */
+  .service-card {
+
+    height: 340px;
+  }
+  
+  .card-title1 {
+    font-size: 14px;
+  }
+  
+  .card-description {
+    font-size: 10px;
+  }
+  
+  .card-image {
+    width: 120px;
+    height: 120px;
+  }
+  
+  /* Сброс и переопределение цветов карточек в мобильной версии для шахматного порядка */
+  .service-grid .service-card {
+    background-color: #E5E5E5; /* Все карточки серые по умолчанию */
+  }
+  
+  /* Шахматный порядок: четные в ряду - зеленые */
+  .service-grid > div:nth-child(2n) .service-card,
+  .service-grid > div:nth-child(2n) .service-card.gray {
+    background-color: #C8DAC9;
+  }
+  
+  /* Шахматный порядок: нечетные в ряду - серые */
+  .service-grid > div:nth-child(2n-1) .service-card,
+  .service-grid > div:nth-child(2n-1) .service-card.green {
+    background-color: #E5E5E5;
+  }
+
+
+  .service-container::after {
+  
+  width: 0px;
+  height: 0px;
+  
+}
+
+/* Right foliage - flipped image */
+.service-content::before {
+   width: 0px;
+  height: 0px;
+}
+
+}

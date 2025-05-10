@@ -1,0 +1,186 @@
+/* AboutMe.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+/* Custom font import for GarciaMarquez */
+@font-face {
+  font-family: 'GarciaMarquez';
+  src: local('GarciaMarquez'),
+      url('../../assets/fonts/GarciaMarquez.woff2') format('woff2'),
+      url('../../assets/fonts/GarciaMarquez.woff') format('woff'),
+      url('../../assets/fonts/GarciaMarquez.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.about-me-section {
+  padding: 40px 20px;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.about-me-title {
+  font-family: 'GarciaMarquez', serif;
+  color: #094215;
+  text-align: center;
+  font-size: 56px;
+}
+
+.about-me-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.about-me-cards-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  touch-action: pan-x;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch; /* Плавный скроллинг на iOS */
+}
+
+.about-me-cards-container:active {
+  cursor: grabbing;
+}
+
+.about-me-cards {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+  touch-action: pan-y;
+  transition: transform 0.3s ease; /* Более короткая и плавная анимация */
+}
+
+.carousel-btn {
+  background-color: rgba(255, 255, 255, 0.0);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(45, 93, 58, 0.9);
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #2D5D3A;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .about-me-title {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-me-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+  
+  .about-me-section {
+    padding: 30px 15px;
+  }
+  
+  /* Улучшение отображения индикаторов на мобильных */
+  .carousel-dots {
+    gap: 6px;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  /* Улучшение взаимодействия со слайдером на планшетах */
+  .about-me-cards {
+    transition: transform 0.3s ease-out;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-me-title {
+    font-size: 28px;
+  }
+  
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    opacity: 0.7;
+  }
+  
+  /* Показываем кнопки только при наведении на мобильных */
+  .about-me-carousel:not(:hover) .carousel-btn {
+    opacity: 0.2;
+  }
+  
+  .about-me-carousel:hover .carousel-btn {
+    opacity: 0.9;
+  }
+  
+  /* Еще больше уменьшаем индикаторы на самых маленьких экранах */
+  .carousel-dots {
+    gap: 5px;
+    margin-top: 15px;
+  }
+  
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+  
+  /* Настраиваем поведение на мобильных устройствах */
+  .about-me-cards-container {
+    touch-action: none; /* Предотвращаем стандартное поведение прокрутки */
+  }
+  
+  .about-me-cards {
+    transition: transform 0.3s cubic-bezier(0.25, 0.25, 0.25, 0.25); /* Плавное замедление */
+  }
+}
